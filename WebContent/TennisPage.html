@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script   src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+function submitCategoryRank() {
+	var category = $('#category option:selected').val(); 
+	var rank = $('#rank option:selected').val();
+	var dataString = "category=" + category + "&rank=" + rank;
+	
+	$.ajax({
+	    type:'GET',
+	    data:dataString,
+	    url:'http://localhost:8088/TennisServletProject/TennisPlayerInformation',
+	    success:function(data) {
+	      var names = data.split(",");
+	      $.each(names, function(i, value) {
+	            $('#players').append($('<option>').text(value).attr('value', value));
+	        });
+	      
+	    }
+	  });
+}
+
+function submit2() {
+	var name = $('#players option:selected').val(); 
+	var dataString = "name=" + name;
+	
+	$.ajax({
+	    type:'GET',
+	    data:dataString,
+	    url:'http://localhost:8088/TennisServletProject/TennisPlayer',
+	    success:function(data) {
+	      var titles = data;
+	      $( "#titles" ).append( "<p> number of titles are " + titles + "</p>");
+	      
+	    }
+	  });
+}
+	  
+	  
+	  
+</script>
+
+
+</head>
+<body>
+
+	Select Category :  <select name="category" required="required" id="category">
+  							<option value="atp">ATP (Men's tour)</option>
+  							<option value="wta">WTA (Women's tour)</option>
+  							<option value="boys">Boys Under 18</option>
+  							<option value="girls"> Girls Under 18</option>
+						</select>
+						
+	Rank : <select name="rank" required="required" id="rank">
+  				<option value="1"> 1-5 </option>
+  				<option value="2"> 6-10 </option>
+  				<option value="3"> 11-15 </option>
+  				<option value="4"> 16-20 </option>
+			</select>
+
+	<button id="submit1" onclick="submitCategoryRank()">Submit</button>
+
+
+	Players : <select id="players">
+		  </select>
+		  
+		  <button id="submit2" onclick="submit2()">Get Player Info</button>
+
+			<div id="titles"></div>
+
+
+</body>
+</html>
