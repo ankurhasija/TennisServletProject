@@ -42,7 +42,7 @@ public class FetchPlayerInfo extends HttpServlet {
 		
 		try
 		{
-			URL url = new URL("http://localhost:8080/RestWS/webapi/players/" + name);
+			URL url = new URL("http://localhost:8080/TennisPlayerWebService/webapi/players/" + name);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/xml");
