@@ -4,6 +4,16 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 <script   src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
 
 
@@ -52,30 +62,48 @@ function submit2() {
 
 </head>
 <body>
+<div class="container">
 
-	Select Category :  <select name="category" required="required" id="category">
+<div class="page-header">
+        <h3>Get Tennis Player Names sorted by category and rank</h3>
+</div>
+
+<div>
+	<p> Select Category :  <select name="category" required="required" id="category" >
   							<option value="atp">ATP (Men's tour)</option>
   							<option value="wta">WTA (Women's tour)</option>
   							<option value="boys">Boys Under 18</option>
   							<option value="girls"> Girls Under 18</option>
-						</select>
-						
-	Rank : <select name="rank" required="required" id="rank">
+						</select>   </p>
+	<br />
+	<p>  Rank : <select name="rank" required="required" id="rank" >
   				<option value="1"> 1-5 </option>
   				<option value="2"> 6-10 </option>
   				<option value="3"> 11-15 </option>
   				<option value="4"> 16-20 </option>
-			</select>
+			</select> </p>
+    <br />
+	<button id="submit1" onclick="submitCategoryRank()" type="button" class="btn btn-info">Submit</button>
+</div>
 
-	<button id="submit1" onclick="submitCategoryRank()">Submit</button>
+<br />
 
+<div class="page-header">
+        <h3>Get Number of titles for your selected Tennis player</h3>
+</div>
 
-	Players : <select id="players">
-		  </select>
-		  
-		  <button id="submit2" onclick="submit2()">Get Player Info</button>
+<div>
+	  <p> Players : <select id="players" ></select> </p>
+		<br />  
+	<button id="submit2" onclick="submit2()" type="button" class="btn btn-info">Get Player Info</button>
+     <br />
+     </div>
+     <br />
+<div>
+		<div id="titles" class="well"> </div>
+</div>
 
-			<div id="titles"></div>
+</div>
 
 
 </body>
